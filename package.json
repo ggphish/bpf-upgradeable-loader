@@ -1,0 +1,35 @@
+{
+  "name": "bpf_upgradeable_loader",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "solana", "web3.js", "bpf_loader", "program", "native_loader", "bpf_upgradeable_loader"
+  ],
+  "author": "GGPhishLabs",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "node": {
+        "module": "./dist/index.js",
+        "require": "./dist/cjs/index.js",
+        "import": "./dist/mjs/index.js"
+      },
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "description": "Solana Bpf Upgradeable Loader Program",
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "buffer": "~6.0.3",
+    "@solana/web3.js": "^1.98.0"
+  }
+}
