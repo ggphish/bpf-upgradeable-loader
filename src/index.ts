@@ -148,11 +148,12 @@ export class BpfUpgradeableLoaderProgram {
     }
 
     public static write (params: WriteParams): TransactionInstruction {
-        const instruction: Buffer = Buffer.alloc(16);
+        let instruction: Buffer = Buffer.alloc(16);
         instruction.writeUInt32LE(1, 0);
         instruction.writeUInt32LE(params.offset, 4);
         instruction.writeUInt32LE(params.data.length, 8);
         instruction.writeUInt32LE(0, 12);
+        instruction = Buffer.concat([instruction, params.data])
 
         return new TransactionInstruction({
             keys: [
