@@ -7,5 +7,5 @@ Use this to interact with BPFUpgradeableLoader on solana blockchain.
 ### For use in Node.js
 
 ```
-$ npm install --save @ggphish/bpf-upgradeable-loader
+$ npm install --save bpf_upgradeable_loader
 ```
