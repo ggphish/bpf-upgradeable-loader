@@ -112,11 +112,12 @@ export class BpfUpgradeableLoaderProgram {
         });
     }
     static write(params) {
-        const instruction = Buffer.alloc(16);
+        let instruction = Buffer.alloc(16);
         instruction.writeUInt32LE(1, 0);
         instruction.writeUInt32LE(params.offset, 4);
         instruction.writeUInt32LE(params.data.length, 8);
         instruction.writeUInt32LE(0, 12);
+        instruction = Buffer.concat([instruction, params.data]);
         return new TransactionInstruction({
             keys: [
                 { pubkey: params.write, isSigner: true, isWritable: true },
